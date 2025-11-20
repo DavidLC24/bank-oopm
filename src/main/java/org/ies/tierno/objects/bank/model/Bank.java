@@ -12,6 +12,14 @@ public class Bank {
         this.accounts = accounts;
     }
 
+    public void showInfo(){
+        System.out.println("Banco"+name);
+        for (int i = 0; i < accounts.length; i++) {
+            System.out.println("Cuenta "+i);
+            accounts[i].showInfo();
+        }
+    }
+
     public String getName() {
         return name;
     }

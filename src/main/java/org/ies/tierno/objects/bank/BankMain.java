@@ -16,6 +16,6 @@ public class BankMain {
 
         Bank bank = bankReader.read();
 
-        System.out.println(bank);
+        bank.showInfo();
     }
 }
