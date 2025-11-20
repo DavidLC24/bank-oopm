@@ -19,6 +19,20 @@ public class Account {
         customer.showInfo();
     }
 
+    public void deposit(double amount){
+        balance= balance+amount;
+    }
+
+    public boolean withdraw (double amount){
+        if (balance>=amount){
+            balance=balance-amount;
+            return true;
+        } else {
+            System.out.println("No hay suficiente saldo");
+            return false;
+        }
+    }
+
     public String getIban() {
         return iban;
     }

@@ -1,5 +1,6 @@
 package org.ies.tierno.objects.bank;
 
+import org.ies.tierno.objects.bank.model.Account;
 import org.ies.tierno.objects.bank.model.Bank;
 import org.ies.tierno.objects.bank.readers.AccountReader;
 import org.ies.tierno.objects.bank.readers.BankReader;
@@ -15,7 +16,7 @@ public class BankMain {
         var bankReader = new BankReader(scanner, accountReader);
 
         Bank bank = bankReader.read();
-
+        Account account= bank.getAccounts()[0];
         bank.showInfo();
     }
 }
