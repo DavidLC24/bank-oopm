@@ -19,6 +19,38 @@ public class Bank {
             accounts[i].showInfo();
         }
     }
+    public void accountsBank(){
+        getAccounts();
+    }
+
+    public void infoAccount(String iban){
+        var found= false;
+        for (Account account : accounts){
+            if (account.getIban().equals(iban)){
+                account.showInfo();
+                found= true;
+            }
+        }
+        if (!found){
+            System.out.println("Cuenta no encontrada");
+        }
+    }
+
+    public Account finAccount(String iban){
+        for (Account account : accounts){
+            if (account.getIban().equals(iban)){
+                return account;
+    }}
+    return null;}
+
+    public void finAccount2(String nif){
+        for (Account account : accounts){
+            Customer customer= account.getCustomer();
+            if (account.getCustomer().getNif().equals(nif)){
+                account.showInfo();
+                }
+            }
+        }
 
     public String getName() {
         return name;

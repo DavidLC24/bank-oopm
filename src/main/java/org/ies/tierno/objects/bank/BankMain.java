@@ -18,5 +18,6 @@ public class BankMain {
         Bank bank = bankReader.read();
         Account account= bank.getAccounts()[0];
         bank.showInfo();
+        bank.infoAccount(account.getIban());
     }
 }
