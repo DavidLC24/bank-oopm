@@ -51,6 +51,18 @@ public class Bank {
                 }
             }
         }
+    public void money (String iban, int dinero){
+        var found= false;
+        for (Account account: accounts){
+            if (account.getIban().equals(iban+dinero)){
+                account.showInfo();
+                found= true;
+            }
+        }
+        if(!found){
+            System.out.println("No se encuentra la cuenta");
+        }
+    }
 
     public String getName() {
         return name;
