@@ -36,7 +36,7 @@ public class Bank {
         }
     }
 
-    public Account finAccount(String iban){
+    public Account findAccount(String iban){
         for (Account account : accounts){
             if (account.getIban().equals(iban)){
                 return account;
@@ -52,13 +52,47 @@ public class Bank {
             }
         }
     public void deposit (String iban, double amount){
-        Account account= finAccount(iban);
+        Account account= findAccount(iban);
             if (account==null) {
                 System.out.println("No se encuentra la cuenta");
             }
             else{
             account.deposit(amount);
         }
+    }
+
+    public Customer findAccountCustomer(String iban) {
+        var account = findAccount(iban);
+        if (account == null) {
+            return null;
+        } else {
+            return account.getCustomer();
+        }
+    }
+
+    public int countCustomerAccounts(String nif) {
+        int count = 0;
+        for (var account : accounts) {
+            if (account.getCustomer().getNif().equals(nif)) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public boolean transfer(String ibanOrigin, String ibanDestination, double amount) {
+        var origin = findAccount(ibanOrigin);
+        var destination = findAccount(ibanDestination);
+        if (origin != null && destination != null) {
+            if (origin.getBalance() >= amount) {
+                origin.withdraw(amount);
+                destination.deposit(amount);
+                return true;
+            }
+        } else {
+            System.out.println("No exista la cuenta de origen o destino");
+        }
+        return false;
     }
 
     public String getName() {
