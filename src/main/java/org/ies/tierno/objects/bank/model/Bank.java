@@ -36,6 +36,15 @@ public class Bank {
         }
     }
 
+    public void showCustomerAccounts(String nif) {
+        for (var account : accounts) {
+            Customer customer = account.getCustomer();
+            if (customer.getNif().equals(nif)) {
+                account.showInfo();
+            }
+        }
+    }
+
     public Account findAccount(String iban){
         for (Account account : accounts){
             if (account.getIban().equals(iban)){
