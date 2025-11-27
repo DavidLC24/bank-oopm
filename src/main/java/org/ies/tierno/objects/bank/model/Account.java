@@ -1,6 +1,5 @@
 package org.ies.tierno.objects.bank.model;
 import java.util.Objects;
-
 public class Account {
     private String iban;
     private double balance;
