@@ -1,12 +1,10 @@
 package org.ies.tierno.objects.bank.model;
-
 import java.util.Objects;
 
 public class Account {
     private String iban;
     private double balance;
     private Customer customer;
-
     public Account(String iban, double balance, Customer customer) {
         this.iban = iban;
         this.balance = balance;
